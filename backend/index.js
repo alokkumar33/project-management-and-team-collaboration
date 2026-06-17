@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import cookieParser from 'cookie-parser';
 
 import authRoutes from './routes/auth.route.js';
 
@@ -24,6 +25,8 @@ app.use(cors({
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+app.use(cookieParser());
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
